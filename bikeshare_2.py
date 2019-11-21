@@ -21,16 +21,19 @@ def get_filters():
 
     city = input("enter a city 'chicago', 'new york city', 'washington'\n")
     while ( city not in ['chicago', 'new york city', 'washington']):
-        return get_filters()
+        print("enter a valid city value \n")
+        city = input("enter a city 'chicago', 'new york city', 'washington'\n")
     # get user input for month (all, january, february, ... , june)
     month = input("enter a month \n")
     while ( month not in ['all', 'january', 'february','March','April','May','June','July','August ','September','October','November','December']):
-        return get_filters()
+        print("enter a valid month value \n")
+        month = input("enter a month \n")
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
     day = input("enter a day \n")
     while ( day not in ['all', 'monday', 'tuesday','sunday','Wednesday','Saturday','Friday','Thursday']):
-        return get_filters()
+        print("enter a valid month value \n")
+        day = input("enter a day \n")
 
     print('-'*40)
     return city, month, day
@@ -151,17 +154,23 @@ def user_stats(df):
     print("Display counts of user types \n {} \n".format(user_type))
 
     # Display counts of gender
-    user_gender = df['Gender'].value_counts()
-    print("Display counts of user types \n {} \n".format(user_gender))
-
+    if 'Gender' in df:
+     user_gender = df['Gender'].value_counts()
+     print("Display counts of user types \n ")
+     print(user_gender)
+    else:
+     print("no gender \n")
     # Display earliest, most recent, and most common year of birth
-    earliest = df['Birth Year'].min()
-    most_recent = df['Birth Year'].max()
-    common_year = df['Birth Year'].mode()[0]
+    if 'Gender' in df:
+     earliest = df['Birth Year'].min()
+     most_recent = df['Birth Year'].max()
+     common_year = df['Birth Year'].mode()[0]
 
-    print("earliest year of birth \n {} \n".format(earliest))
-    print("most recent year of birth \n {} \n".format(most_recent))
-    print("common year of birth \n {} \n".format(common_year))
+     print("earliest year of birth \n {} \n".format(earliest))
+     print("most recent year of birth \n {} \n".format(most_recent))
+     print("common year of birth \n {} \n".format(common_year))
+    else:
+     print("no Birth Year \n")
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
