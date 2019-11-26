@@ -8,7 +8,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 
 def get_filters():
     """
-   
+   lklm
     """
 
     print('Hello! Let\'s explore some US bikeshare data!')
@@ -27,7 +27,7 @@ def get_filters():
     # get user input for day of week (all, monday, tuesday, ... sunday)
     day = input("enter a day \n")
     while ( day not in ['all', 'monday', 'tuesday','sunday','Wednesday','Saturday','Friday','Thursday']):
-        print("enter a valid month value \n")
+        print("enter a valid m  onth value \n")
         day = input("enter a day \n")
 
     print('-'*40)
@@ -36,7 +36,7 @@ def get_filters():
 
 def load_data(city, month, day):
     """
-    Loads data for the specified city and filters by month and day if applicable.
+    Loads data for the spmnecified city and filters by month and day if applicable.
 
     Args:
         (str) city - name of the city to analyze
